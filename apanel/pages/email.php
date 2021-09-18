@@ -147,14 +147,14 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                                     <?php
                                                     }
                                                     ?><tr>
-                                                        <td colspan="10">
+                                                        <td colspan="12">
                                                             <div class="text-center"><?= $pagination; ?></div>
                                                         </td>
                                                     </tr><?php
                                                         } else {
                                                             ?>
                                                     <tr>
-                                                        <td colspan="7" class="text-center">No Record Found</td>
+                                                        <td colspan="12" class="text-center">No Record Found</td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>

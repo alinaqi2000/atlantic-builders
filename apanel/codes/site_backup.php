@@ -65,7 +65,7 @@ if ($_REQUEST['mode'] == 'add') {
         $return .= "\n\n\n";
     }
 
-    $fileName = 'fusionmax_' . time() . '-' . (md5(implode(',', $tables))) . '.sql';
+    $fileName = 'atlantic_' . time() . '-' . (md5(implode(',', $tables))) . '.sql';
     $vals['backup_data'] = $return;
     $vals['backup_filename'] = $fileName;
     saveData('tbl_backup', $vals);

@@ -131,7 +131,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                         }
                                         ?>
                                         <tr>
-                                            <td colspan="7">
+                                            <td colspan="12">
                                                 <div class="text-center"><?= $pagination; ?></div>
                                             </td>
                                         </tr>
