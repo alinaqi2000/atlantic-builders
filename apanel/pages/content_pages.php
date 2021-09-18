@@ -17,12 +17,12 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                         <div class="card card-form">
                             <div class="row no-gutters">
                                 <div class="col-lg-10 offset-1 card-form__body card-body">
-                                    <? if (!empty($_REQUEST['code'])) { ?>
+                                    <?php if (!empty($_REQUEST['code'])) { ?>
                                         <div class="form-group">
                                             <label>Page Name/Slug</label>
                                             <input type="text" name="page_name" id="page_name" value="<?php echo $data['page_name']; ?>" required="required" class="form-control" />
                                         </div>
-                                    <? } ?>
+                                    <?php } ?>
                                     <div class="form-group">
                                         <label for="field">Page Title</label>
                                         <input type="text" name="page_title" id="page_title" value="<?= stripslashes($data['page_title']); ?>" required="required" class="form-control" />
@@ -183,19 +183,19 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                                     <a href="<?= $apath; ?>content_pages?mode=delete&code=<?= $row['page_id'] ?>" class="btn btn-sm btn-danger " onclick="return confirm('Are you sure you want to delete this page?');"><i class="fa fa-trash"></i> Delete</a>
                                                 </td>
                                                 </tr>
-                                            <?
+                                            <?php
                                             }
                                             ?><tr>
                                                 <td colspan="10">
                                                     <div class="text-center"><?= $pagination; ?></div>
                                                 </td>
-                                            </tr><?
+                                            </tr><?php
                                                 } else {
                                                     ?>
                                             <tr>
                                                 <td colspan="7" class="text-center">No Record Found</td>
                                             </tr>
-                                        <? } ?>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -207,7 +207,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
             <?php include_once("pages/shared/sidebar.php"); ?>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 <script>
     $(document).ready(function() {
         $(document).on('change', '#page_menu', function() {

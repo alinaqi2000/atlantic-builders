@@ -21,11 +21,11 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                         <label for="field">Email</label>
                                         <input type="email" name="sub_email" id="sub_email" value="<?= stripslashes($data['sub_email']); ?>" required="required" class="form-control" />
                                     </div>
-                                    <?php if($_REQUEST['mode'] == 'update'){?>  
-                                    <div class="form-group">
-                                <p ><span><b> Date : </b></span><span><?= $data['sub_date'] ?> </span></p>       
-                                </div>
-                                <?php } ?>
+                                    <?php if ($_REQUEST['mode'] == 'update') { ?>
+                                        <div class="form-group">
+                                            <p><span><b> Date : </b></span><span><?= $data['sub_date'] ?> </span></p>
+                                        </div>
+                                    <?php } ?>
                                     <div class="form-group">
                                         <label for="field">Status</label>
                                         <select name="sub_status" id="sub_status" class="form-control">
@@ -51,7 +51,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
             <?php include_once("pages/shared/sidebar.php"); ?>
         </div>
     </div>
-   <?php
+<?php
 } else {
 ?>
     <div class="mdk-header-layout__content">
@@ -85,10 +85,10 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                         while ($row = $exe->fetch_array()) {
                                             $sub_id = $row['sub_id'];
                                         ?>
-                                                <td>
-                                                    <div class="badge badge-soft-dark">#<?= $sub_id ?></div>
-                                                </td>
-                                                <!-- <td>
+                                            <td>
+                                                <div class="badge badge-soft-dark">#<?= $sub_id ?></div>
+                                            </td>
+                                            <!-- <td>
                                                     <div class="d-flex align-items-center">
                                                         <div class="d-flex align-items-center">
                                                             <i class="material-icons icon-16pt mr-1 text-blue">link</i>
@@ -96,23 +96,23 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                                         </div>
                                                     </div>
                                                 </td> -->
-                                                <td><?= stripslashes($row['sub_email']); ?></td>
+                                            <td><?= stripslashes($row['sub_email']); ?></td>
 
-                                                <td style="width:80px" class="text-center"><input id="orderid<?= $sub_id ?>" type="text" name="orderid<?= $sub_id ?>" value="<?= $row['sub_order'] ?>" class="form-control" size="3" /></td>
-                                                <td>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" name="sub_status[]" class="custom-control-input js-check-selected-row" id="customCheck2_<?= $sub_id ?>" value="<?= $sub_id ?>">
-                                                        <label class="custom-control-label" for="customCheck2_<?= $sub_id ?>"><?= getStatus($row['sub_status']); ?></label>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a href="<?= $apath; ?>subscribers?mode=update&code=<?= $row['sub_id'] ?><?= $pager; ?>" class="btn btn-sm btn-primary mr-1"><i class="fa fa-pencil-alt"></i> Edit</a>
-                                                    <a href="<?= $apath; ?>subscribers?mode=delete&code=<?= $row['sub_id'] ?><?= $pager; ?>" class="btn btn-sm btn-danger " onclick="return confirm('Are you sure you want to delete this page?');"><i class="fa fa-trash"></i> Delete</a>
-                                                </td>
-                                                </tr>
-                                            <?
-                                            }
-                                            ?>
+                                            <td style="width:80px" class="text-center"><input id="orderid<?= $sub_id ?>" type="text" name="orderid<?= $sub_id ?>" value="<?= $row['sub_order'] ?>" class="form-control" size="3" /></td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" name="sub_status[]" class="custom-control-input js-check-selected-row" id="customCheck2_<?= $sub_id ?>" value="<?= $sub_id ?>">
+                                                    <label class="custom-control-label" for="customCheck2_<?= $sub_id ?>"><?= getStatus($row['sub_status']); ?></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="<?= $apath; ?>subscribers?mode=update&code=<?= $row['sub_id'] ?><?= $pager; ?>" class="btn btn-sm btn-primary mr-1"><i class="fa fa-pencil-alt"></i> Edit</a>
+                                                <a href="<?= $apath; ?>subscribers?mode=delete&code=<?= $row['sub_id'] ?><?= $pager; ?>" class="btn btn-sm btn-danger " onclick="return confirm('Are you sure you want to delete this page?');"><i class="fa fa-trash"></i> Delete</a>
+                                            </td>
+                                            </tr>
+                                        <?php
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -124,4 +124,4 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
             <?php include_once("pages/shared/sidebar.php"); ?>
         </div>
     </div>
-<? } ?>
+<?php } ?>

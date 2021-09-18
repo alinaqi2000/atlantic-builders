@@ -20,10 +20,6 @@ include_once("includes/confg.php");
     <meta name="robots" content="noindex">
     <link href="<?= $apath ?>../uploads/logo/<?php echo $site_logo ?>" rel="icon">
 
-    <!-- Color Picker -->
-    <?php if ($_REQUEST['page'] == 'site_theme') { ?>
-        <link rel="stylesheet" href="<?php echo $apath ?>colorpicker/css/colorpicker.css" type="text/css" />
-    <?php } ?>
     <!-- Perfect Scrollbar -->
     <link type="text/css" href="<?= $apath; ?>assets/vendor/perfect-scrollbar.css" rel="stylesheet">
 
@@ -58,12 +54,12 @@ include_once("includes/confg.php");
     <script src="<?= $apath; ?>assets/ajax.js"></script>
     <!-- jQuery -->
     <script src="<?= $apath; ?>assets/vendor/jquery.min.js"></script>
-        <style>
-            .layout-default {
-                width: 100%;
-                height: auto;
-            }
-        </style>
+    <style>
+        .layout-default {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 
 
@@ -117,27 +113,7 @@ include_once("includes/confg.php");
     <script src="<?= $apath; ?>assets/vendor/moment.min.js"></script>
     <script src="<?= $apath; ?>assets/vendor/moment-range.js"></script>
     <?php showToastMsg(); ?>
-    <? /*
-    <!-- Chart.js -->
-    <script src="<?= $apath; ?>assets/vendor/Chart.min.js"></script>
 
-    <!-- App Charts JS -->
-    <script src="<?= $apath; ?>assets/js/charts.js"></script>
-    <script src="<?= $apath; ?>assets/js/chartjs-rounded-bar.js"></script>
-
-    <!-- Chart Samples -->
-    <script src="<?= $apath; ?>assets/js/page.dashboard.js"></script>
-    <script src="<?= $apath; ?>assets/js/progress-charts.js"></script>
-
-    <!-- Vector Maps -->
-    <script src="<?= $apath; ?>assets/vendor/jqvmap/jquery.vmap.min.js"></script>
-    <script src="<?= $apath; ?>assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
-    <script src="<?= $apath; ?>assets/js/vector-maps.js"></script>
-
-    <!-- Dropzone -->
-    <script src="assets/vendor/dropzone.min.js"></script>
-    <script src="assets/js/dropzone.js"></script>
-    */ ?>
     <?php
     if ($_REQUEST['page'] == 'list_menus' && ($_REQUEST['mode'] == 'add' || $_REQUEST['mode'] == 'update')) { ?>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>

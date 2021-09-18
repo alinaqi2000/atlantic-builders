@@ -12,7 +12,7 @@ if ($_SERVER['HTTP_HOST'] != 'localhost') {
     $path = "https://www.fusionmaxcarwash.com/demo/";
 } else {
     $hostname_dbconn = "localhost";
-    $rating_dbname = "atlantic_db";
+    $rating_dbname = "atlantic";
     $username_dbconn = "root";
     $password_dbconn = "";
 

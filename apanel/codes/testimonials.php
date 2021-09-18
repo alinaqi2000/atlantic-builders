@@ -1,7 +1,7 @@
 <?php
 
 // $page_title = 'Slider';
-// $page_short = 'Slider';
+$page_short = 'Testimonial';
 $page_uri = 'testimonials';
 $this_table = 'tbl_testimonials';
 $this_prefix = 'test_';
@@ -10,7 +10,9 @@ if (isset($_POST['submit1'])) {
 
     $vals = $_POST;
     unset($vals['submit1']);
-
+    if ($img_rs = uploadImage($_FILES[$this_prefix . "image"], "../uploads/testimonials/", 720)) {
+        $vals[$this_prefix . 'image'] = $img_rs;
+    }
     $vals['test_slug'] = toSlugUrl($vals['test_title']);
     if ($_REQUEST['mode'] == 'add') {
         global $conn;
@@ -20,17 +22,10 @@ if (isset($_POST['submit1'])) {
         $r1_max_orderid = $q1_max_orderid->fetch_array();
         $vals[$this_prefix . 'order'] = intval($r1_max_orderid["orderid"]) + 1;
 
-        if ($img_rs = uploadImageThumb($_FILES[$this_prefix . "image"], "../uploads/testimonials/", 1920, 1920)) {
-            $vals[$this_prefix . 'image'] = $img_rs[0];
-        }
         saveRecord($this_table, $vals);
 
         $_SESSION['successMsg'] = "Testimonial has been saved successfully !";
     } else if ($_REQUEST['mode'] == 'update') {
-
-        if ($img_rs = uploadImageThumb($_FILES[$this_prefix . "image"], "../uploads/testimonials/", 1920, 1920)) {
-            $vals[$this_prefix . 'image'] = $img_rs[0];
-        }
 
         updateRecord($this_table, $vals, " `{$this_prefix}id` = '" . $_REQUEST["code"] . "' ");
         $_SESSION['successMsg'] = "$page_short has been updated successfully !";

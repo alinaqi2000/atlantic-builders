@@ -186,22 +186,12 @@
                                             <div class="home_stats_down col-md-12"><a class="home_stats_link" href="text_header">Click Here</a></div>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-3">
-                                        <div class="home_stats">
-                                            <div class="home_stats_up col-md-12">
-                                                <b>Slider</b>
-                                            </div>
-                                            <div 
-                                                class="home_stats_down col-md-12"><a class="home_stats_link"
-                                                    href="slider">Click Here</a></div>
-                                        </div>
-                                    </div> -->
                                     <div class="col-md-3">
                                         <div class="home_stats">
                                             <div class="home_stats_up col-md-12">
-                                                <b>Portfolio</b>
+                                                <b>Facilities</b>
                                             </div>
-                                            <div class="home_stats_down col-md-12"><a class="home_stats_link" href="text_portfolio">Click Here</a></div>
+                                            <div class="home_stats_down col-md-12"><a class="home_stats_link" href="text_facilities">Click Here</a></div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -212,43 +202,6 @@
                                             <div class="home_stats_down col-md-12"><a class="home_stats_link" href="text_about">Click Here</a></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="home_stats">
-                                            <div class="home_stats_up col-md-12">
-                                                <b>Services</b>
-                                            </div>
-                                            <div class="home_stats_down col-md-12"><a class="home_stats_link" href="text_services">Click Here</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="home_stats">
-                                            <div class="home_stats_up col-md-12">
-                                                <b>Testimonial</b>
-                                            </div>
-                                            <div class="home_stats_down col-md-12"><a class="home_stats_link" href="text_testimonials">Click Here</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="home_stats">
-                                            <div class="home_stats_up col-md-12">
-                                                <b>Newsletter</b>
-                                            </div>
-                                            <div class="home_stats_down col-md-12"><a class="home_stats_link" href="text_newsletter">Click Here</a></div>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-md-3">
-                                        <div class="home_stats">
-                                            <div class="home_stats_up col-md-12">
-                                                <b>Our Mission</b>
-                                            </div>
-                                            <div 
-                                                class="home_stats_down col-md-12"><a class="home_stats_link"
-                                                    href="text_mission">Click Here</a></div>
-                                        </div>
-                                    </div> -->
                                     <div class="col-md-3">
                                         <div class="home_stats">
                                             <div class="home_stats_up col-md-12">

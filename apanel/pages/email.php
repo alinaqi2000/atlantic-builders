@@ -144,19 +144,19 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                                             <a href="<?= $apath; ?>email?mode=update&code=<?= $row['email_id'] ?><?= $pager; ?>" class="btn btn-sm btn-primary mr-1"><i class="fa fa-pencil-alt"></i> Edit</a>
                                                         </td>
                                                         </tr>
-                                                    <?
+                                                    <?php
                                                     }
                                                     ?><tr>
                                                         <td colspan="10">
                                                             <div class="text-center"><?= $pagination; ?></div>
                                                         </td>
-                                                    </tr><?
+                                                    </tr><?php
                                                         } else {
                                                             ?>
                                                     <tr>
                                                         <td colspan="7" class="text-center">No Record Found</td>
                                                     </tr>
-                                                <? } ?>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -177,4 +177,4 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
             })
         });
     </script>
-<? } ?>
+<?php } ?>

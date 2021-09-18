@@ -11,6 +11,10 @@ if (isset($_POST['submit1'])) {
     $vals = $_POST;
     unset($vals['submit1']);
 
+    if ($img_rs = uploadImage($_FILES[$this_prefix . "image"], "../uploads/sliders/", 1920)) {
+        $vals[$this_prefix . 'image'] = $img_rs;
+    }
+
     if ($_REQUEST['mode'] == 'add') {
         global $conn;
 
@@ -19,20 +23,10 @@ if (isset($_POST['submit1'])) {
         $r1_max_orderid = $q1_max_orderid->fetch_array();
         $vals[$this_prefix . 'order'] = intval($r1_max_orderid["orderid"]) + 1;
 
-        if ($img_rs = uploadImageThumb($_FILES[$this_prefix . "image"], "../uploads/slider/", 1920, 1920)) {
-            $vals[$this_prefix . 'image'] = $img_rs[0];
-            $vals[$this_prefix . 'thumb'] = $img_rs[1];
-        }
-
         saveRecord($this_table, $vals);
 
         $_SESSION['successMsg'] = "$page_short has been saved successfully !";
     } else if ($_REQUEST['mode'] == 'update') {
-
-        if ($img_rs = uploadImageThumb($_FILES[$this_prefix . "image"], "../uploads/slider/", 1920, 1920)) {
-            $vals[$this_prefix . 'image'] = $img_rs[0];
-            $vals[$this_prefix . 'thumb'] = $img_rs[1];
-        }
 
         updateRecord($this_table, $vals, " `{$this_prefix}id` = '" . $_REQUEST["code"] . "' ");
         $_SESSION['successMsg'] = "$page_short has been updated successfully !";

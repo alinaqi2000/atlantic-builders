@@ -21,19 +21,20 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                             <div class="row no-gutters">
                                 <div class="col-lg-10 offset-1 card-form__body card-body">
                                     <div class="form-group">
-                                        <label for="field">Heading</label>
+                                        <label for="test_title">Name</label>
                                         <input class="form-control" name="test_title" id="test_title" value="<?= stripslashes($data['test_title']); ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="field">Portfolio</label>
+                                        <label for="test_portfolio">Portfolio</label>
                                         <input class="form-control" name="test_portfolio" id="test_portfolio" value="<?= stripslashes($data['test_portfolio']); ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="field">Description</label>
+                                        <label for="test_desc">Description</label>
                                         <textarea class="form-control" name="test_desc" id="test_desc" rows="3"><?= stripslashes($data['test_desc']); ?></textarea>
                                     </div>
+                                    <?php formImageFile('Image', 'test_image', $data['test_image'], '720px', 'testimonials') ?>
                                     <div class="form-group">
-                                        <label for="field">Status</label>
+                                        <label for="test_status">Status</label>
                                         <select name="test_status" id="test_status" class="form-control">
                                             <option value="1" <?= ($data['test_status'] == '1' ? 'selected="selected"' : ''); ?>>Active
                                             </option>
@@ -78,6 +79,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                     <thead>
                                         <tr>
                                             <th style="width: 3%;" class="text-center">#ID</th>
+                                            <th style="width: 15%;">Image</th>
                                             <th>Title</th>
                                             <th>Portfolio</th>
                                             <th style="width: 10%;" class="text-center">Sort</th>
@@ -90,22 +92,21 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                     </thead>
                                     <tbody class="list" id="listingTable">
                                         <?php
-                                        $sr=1;
+                                        $sr = 1;
                                         $paging =  "SELECT * FROM tbl_testimonials LIMIT 0, 10";
                                         $exe = $conn->query($paging) or die(mysqli_error($conn));
                                         while ($row = $exe->fetch_array()) {
                                             $test_id = $row['test_id'];
-                                            if (strlen($row['test_detail']) > 15) {
-                                                $detail = substr($row['test_desc'], 0, 15);
-                                            }
                                         ?>
                                             <tr>
                                                 <td>
                                                     <div class="badge badge-soft-dark">#<?= $sr++ ?></div>
                                                 </td>
-                                            
+
+                                                <td><img src="<?= getImageSrc("../uploads/teatimonials/" . $row['test_image']); ?>" class="tbl_img" /></td>
+
                                                 <td><?= stripslashes($row['test_title']); ?></td>
-                                                
+
                                                 <td><?= stripslashes($row['test_portfolio']); ?></td>
                                                 <td style="width:80px" class="text-center"><input id="orderid<?= $test_id ?>" type="text" name="orderid<?= $test_id ?>" value="<?= $row['test_order'] ?>" class="form-control" size="3" />
                                                 </td>
@@ -126,7 +127,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                                     <!-- <a href="<?= $apath; ?><?= $page_uri; ?>?mode=delete&code=<?= $row['test_id'] ?><?= $pager; ?>" class="btn btn-sm btn-danger " onclick="return confirm('Are you sure you want to delete this page?');"><i class="fa fa-trash"></i> Delete</a> -->
                                                 </td>
                                             </tr>
-                                        <?
+                                        <?php
                                         }
                                         ?>
                                         <tr>
