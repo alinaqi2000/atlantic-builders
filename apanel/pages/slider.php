@@ -25,8 +25,8 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                         <input class="form-control" name="slider_title" id="slider_title" value="<?= stripslashes($data['slider_title']); ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="sec_title">Secondary Title</label>
-                                        <input class="form-control" name="sec_title" id="sec_title" value="<?= stripslashes($data['sec_title']); ?>">
+                                        <label for="slider_sec_title">Secondary Title</label>
+                                        <input class="form-control" name="slider_sec_title" id="slider_sec_title" value="<?= stripslashes($data['slider_sec_title']); ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="slider_desc">Description</label>
@@ -34,7 +34,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                     </div>
                                     <div class="form-group">
                                         <label for="slider_btn_text">Button Text</label>
-                                        <input class="form-control" name="slider_btn_txt" id="slider_btn_txt" value="<?= stripslashes($data['slider_btn_txt']); ?>">
+                                        <input class="form-control" name="slider_btn_text" id="slider_btn_text" value="<?= stripslashes($data['slider_btn_text']); ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="slider_btn_link">Button Link</label>
@@ -100,7 +100,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                     <tbody class="list" id="listingTable">
                                         <?php
                                         $sr = 1;
-                                        $paging =  "SELECT * FROM tbl_sliders LIMIT 0, 10";
+                                        $paging =  "SELECT * FROM tbl_slider LIMIT 0, 10";
                                         $exe = $conn->query($paging) or die(mysqli_error($conn));
                                         while ($row = $exe->fetch_array()) {
                                             $slider_id = $row['slider_id'];
