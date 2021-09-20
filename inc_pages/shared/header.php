@@ -5,7 +5,7 @@
 </style>
 <header class="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent--- gradient-color-4---">
     <!-- ltn__header-top-area start -->
-    <div class="ltn__header-top-area">
+    <div class="ltn__header-top-area py-1">
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
@@ -64,7 +64,7 @@
                 <div class="col">
                     <div class="site-logo-wrap">
                         <div class="site-logo animated fadeIn">
-                            <a href="index-2.html"><img src="<?= $path ?>images/logo.png" alt="Logo"></a>
+                            <a href="<?= $path ?>"><img src="<?= $path ?>images/logo.png" alt="Logo"></a>
                         </div>
                         <div class="get-support clearfix d-none">
                             <div class="get-support-icon">

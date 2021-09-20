@@ -9,7 +9,7 @@
                         <p>We help you make the dream of new house a reality</p>
                     </div>
                     <div class="btn-wrapper">
-                        <a class="btn btn-effect-3 btn-white" href="contact.html">Explore Properties <i class="icon-next"></i></a>
+                        <a class="btn btn-effect-3 btn-white" href="<?= $path ?>contact">Explore Properties <i class="icon-next"></i></a>
                     </div>
                 </div>
             </div>

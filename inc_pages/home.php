@@ -55,7 +55,6 @@
                                         </div>
                                         <div class="btn-wrapper animated">
                                             <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
-                                            <a href="about.html" class="btn btn-transparent btn-effect-3">LEARN MORE</a>
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +86,6 @@
                                         </div>
                                         <div class="btn-wrapper animated">
                                             <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
-                                            <a href="about.html" class="btn btn-transparent btn-effect-3">LEARN MORE</a>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +117,6 @@
                                         </div>
                                         <div class="btn-wrapper animated">
                                             <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
-                                            <a href="about.html" class="btn btn-transparent btn-effect-3">LEARN MORE</a>
                                         </div>
                                     </div>
                                 </div>
@@ -290,8 +287,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
-                    <h6 class="section-subtitle section-subtitle-2--- ltn__secondary-color wow animated fadeIn">Our Aminities</h6>
-                    <h1 class="section-title wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s">Building Aminities</h1>
+                    <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color wow animated fadeIn">Our Services</h6>
+                    <h1 class="section-title wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s">Building Services</h1>
                 </div>
             </div>
         </div>
@@ -629,7 +626,7 @@
             <div class="col-lg-12 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
-                        <a href="product-details.html"><img src="<?= $path ?>assets/img/product-3/1.jpg" alt="#"></a>
+                        <a href="<?= $path ?>property-detail"><img src="<?= $path ?>assets/img/product-3/1.jpg" alt="#"></a>
                         <div class="product-badge">
                             <ul>
                                 <li class="sale-badge bg-green">For Rent</li>
@@ -647,7 +644,7 @@
                     </div>
                     <div class="product-info">
 
-                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                        <h2 class="product-title"><a href="<?= $path ?>property-detail">New Apartment Nice View</a></h2>
                         <div class="product-description">
                             <p>Beautiful Huge 1 Family House In Heart Of <br>
                                 Westbury. Newly Renovated With New Wood</p>
@@ -661,7 +658,7 @@
             <div class="col-lg-12 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
-                        <a href="product-details.html"><img src="<?= $path ?>assets/img/product-3/2.jpg" alt="#"></a>
+                        <a href="<?= $path ?>property-detail"><img src="<?= $path ?>assets/img/product-3/2.jpg" alt="#"></a>
                         <div class="product-badge">
                             <ul>
                                 <li class="sale-badge bg-green---">For Sale</li>
@@ -679,7 +676,7 @@
                     </div>
                     <div class="product-info">
 
-                        <h2 class="product-title"><a href="product-details.html">Modern Apartments</a></h2>
+                        <h2 class="product-title"><a href="<?= $path ?>property-detail">Modern Apartments</a></h2>
                         <div class="product-description">
                             <p>Beautiful Huge 1 Family House In Heart Of <br>
                                 Westbury. Newly Renovated With New Wood</p>
@@ -693,7 +690,7 @@
             <div class="col-lg-12 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
-                        <a href="product-details.html"><img src="<?= $path ?>assets/img/product-3/3.jpg" alt="#"></a>
+                        <a href="<?= $path ?>property-detail"><img src="<?= $path ?>assets/img/product-3/3.jpg" alt="#"></a>
                         <div class="product-badge">
                             <ul>
                                 <li class="sale-badge bg-green">For Rent</li>
@@ -711,7 +708,7 @@
                     </div>
                     <div class="product-info">
 
-                        <h2 class="product-title"><a href="product-details.html">Comfortable Apartment</a></h2>
+                        <h2 class="product-title"><a href="<?= $path ?>property-detail">Comfortable Apartment</a></h2>
                         <div class="product-description">
                             <p>Beautiful Huge 1 Family House In Heart Of <br>
                                 Westbury. Newly Renovated With New Wood</p>
@@ -725,7 +722,7 @@
             <div class="col-lg-12 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
-                        <a href="product-details.html"><img src="<?= $path ?>assets/img/product-3/4.jpg" alt="#"></a>
+                        <a href="<?= $path ?>property-detail"><img src="<?= $path ?>assets/img/product-3/4.jpg" alt="#"></a>
                         <div class="product-badge">
                             <ul>
                                 <li class="sale-badge bg-green">For Rent</li>
@@ -743,7 +740,7 @@
                     </div>
                     <div class="product-info">
 
-                        <h2 class="product-title"><a href="product-details.html">Luxury villa in Rego Park </a></h2>
+                        <h2 class="product-title"><a href="<?= $path ?>property-detail">Luxury villa in Rego Park </a></h2>
                         <div class="product-description">
                             <p>Beautiful Huge 1 Family House In Heart Of <br>
                                 Westbury. Newly Renovated With New Wood</p>
@@ -757,7 +754,7 @@
             <div class="col-lg-12 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
-                        <a href="product-details.html"><img src="<?= $path ?>assets/img/product-3/5.jpg" alt="#"></a>
+                        <a href="<?= $path ?>property-detail"><img src="<?= $path ?>assets/img/product-3/5.jpg" alt="#"></a>
                         <div class="product-badge">
                             <ul>
                                 <li class="sale-badge bg-green">For Rent</li>
@@ -775,7 +772,7 @@
                     </div>
                     <div class="product-info">
 
-                        <h2 class="product-title"><a href="product-details.html">Beautiful Flat in Manhattan </a></h2>
+                        <h2 class="product-title"><a href="<?= $path ?>property-detail">Beautiful Flat in Manhattan </a></h2>
                         <div class="product-description">
                             <p>Beautiful Huge 1 Family House In Heart Of <br>
                                 Westbury. Newly Renovated With New Wood</p>

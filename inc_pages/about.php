@@ -2,151 +2,125 @@
 $pageid = $_REQUEST['page'];
 $paging =  "SELECT * FROM tbl_pages WHERE page_name='$pageid'";
 $exe = $conn->query($paging) or die(mysqli_error($conn));
-$page = $exe->fetch_array();
+$page = $exe->fetch_assoc();
 ?>
-<!--====== Start breadcrumbs-area Section ======-->
-<section class="breadcrumbs-area bg_cover" style="background-image: url(<?php echo $path ?>uploads/banners/<?php echo $page['page_image'] ?>);">
+<!-- BREADCRUMB AREA START -->
+<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image " data-bs-bg="<?= $path ?>assets/img/bg/14.jpg">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="breadcrumbs-content text-center">
-                    <h1><?php echo $page['page_title'] ?></h1>
-                    <ul>
-                        <li><a href="<?php echo $path ?>">Home</a></li>
-                        <li class="active"><?php echo $page['page_meta_title'] ?></li>
-                    </ul>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ltn__breadcrumb-inner">
+                    <h1 class="page-title"><?php echo $page['page_title'] ?></h1>
+                    <div class="ltn__breadcrumb-list">
+                        <ul>
+                            <li><a href="<?php echo $path ?>"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
+                            <li><?php echo $page['page_meta_title'] ?></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!--====== End breadcrumbs-area Section ======-->
-<!--====== Start about-area Section ======-->
-<?php
-$aboutrs = getTable('tbl_texts', " `txt_type` = 'about' ");
-$about = unserialize(stripslashes($aboutrs['txt_data'])); ?>
-<section class="about-area gradient-bg about-area-v1 pt-50 pb-50">
+</div>
+<!-- BREADCRUMB AREA END -->
+
+<!-- ABOUT US AREA START -->
+<div class="ltn__about-us-area pt-120--- pb-90 mt--30">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="about-img-box">
-                    <div class="img-box img-box-1">
-                        <img src="<?php echo $path ?>uploads/media/<?php echo $about['image1'] ?>" class="img-fluid" alt="">
+            <div class="col-lg-6 align-self-center">
+                <div class="about-us-img-wrap about-img-left wow animated fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                    <img src="<?= $path ?>assets/img/others/16.jpg" alt="About Us Image">
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="about-us-info-wrap">
+                    <div class="section-title-area ltn__section-title-2--- mb-20">
+                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color wow animated fadeIn" data-wow-duration="1s" data-wow-delay="1s">About Us</h6>
+                        <h1 class="section-title wow animated fadeIn" data-wow-duration="1s" data-wow-delay="1s">The Leading Real Estate
+                            Rental Marketplace<span>.</span></h1>
+                        <p class="wow animated fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+                            Over 39,000 people work for us in more than 70 countries all over the This breadth of global coverage, combined with specialist services
+
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
-                    <div class="img-box img-box-2">
-                        <img src="<?php echo $path ?>uploads/media/<?php echo $about['image2'] ?>" class="img-fluid" alt="">
-                        <div class="experience-box">
-                            <h2>25<span>Years Of Experience</span></h2>
+                    <div class="btn-wrapper wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
+                        <a href="<?= $path ?>services" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ABOUT US AREA END -->
+
+<!-- TEAM AREA START (Team - 3) -->
+<div class="ltn__team-area pt-115 pb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-area ltn__section-title-2--- text-center">
+                    <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Team</h6>
+                    <h1 class="section-title">Property Agents</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="ltn__team-item ltn__team-item-3---">
+                    <div class="team-img">
+                        <img src="<?= $path ?>assets/img/team/4.jpg" alt="Image">
+                    </div>
+                    <div class="team-info">
+                        <h4><a href="javascript:void(0);">Rosalina D. William</a></h4>
+                        <h6 class="ltn__secondary-color">Real Estate Broker</h6>
+                        <div class="ltn__social-media">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="img-box img-box-3">
-                        <img src="<?php echo $path ?>uploads/media/<?php echo $about['image3'] ?>" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="ltn__team-item ltn__team-item-3---">
+                    <div class="team-img">
+                        <img src="<?= $path ?>assets/img/team/2.jpg" alt="Image">
+                    </div>
+                    <div class="team-info">
+                        <h4><a href="javascript:void(0);">Kelian Anderson</a></h4>
+                        <h6 class="ltn__secondary-color">Selling Agents</h6>
+                        <div class="ltn__social-media">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="about-content-box mt-45">
-                    <div class="section-title mb-25">
-                        <span class="span"><?php echo $about['title'] ?></span>
-                        <?php echo $about['detail'] ?>
-                        <a href="<?= $path ?><?php echo $about['link'] ?>" class="main-btn"><?php echo $about['text'] ?></a>
+            <div class="col-lg-4 col-sm-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="ltn__team-item ltn__team-item-3---">
+                    <div class="team-img">
+                        <img src="<?= $path ?>assets/img/team/5.jpg" alt="Image">
                     </div>
-                </div>
-            </div>
-        </div>
-</section>
-<!--====== End about-area Section ======-->
-<!--====== Start counter-area Section ======-->
-<!-- <?php
-$statsrs = getTable('tbl_texts', " `txt_type` = 'stats' ");
-$stats = unserialize(stripslashes($statsrs['txt_data'])); ?>
-<section class="counter-area bg_cover" style="background-image: url(assets/images/bg/project-bg.jpg);">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="counter-box text-center">
-                    <?php
-                    $num1 = strpos($stats['count1'], "k");
-                    if ($num1) {
-                        $numstat1 = substr_replace($stats['count1'], '', $num1); ?>
-
-                        <h2><span class="counter"><?php echo $numstat1 ?></span>K</h2>
-                    <?php   } else {
-                        $numstat1 = $stats['count1']; ?>
-                        <h2><span class="counter"><?php echo $numstat1 ?></span></h2>
-                    <?php   }
-                    ?>
-                    <h4><?php echo $stats['title1'] ?></h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="counter-box text-center">
-                    <?php
-                    $num2 = strpos($stats['count2'], "k");
-                    if ($num2) {
-                        $numstat2 = substr_replace($stats['count2'], '', $num2); ?>
-
-                        <h2><span class="counter"><?php echo $numstat2 ?></span>K</h2>
-                    <?php   } else {
-                        $numstat2 = $stats['count2']; ?>
-                        <h2><span class="counter"><?php echo $numstat2 ?></span></h2>
-                    <?php   }
-                    ?>
-                    <h4><?php echo $stats['title2'] ?></h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="counter-box text-center">
-                    <?php
-                    $num3 = strpos($stats['count3'], "k");
-                    if ($num3) {
-                        $numstat3 = substr_replace($stats['count3'], '', $num3); ?>
-
-                        <h2><span class="counter"><?php echo $numstat3 ?></span>K</h2>
-                    <?php   } else {
-                        $numstat3 = $stats['count3']; ?>
-                        <h2><span class="counter"><?php echo $numstat3 ?></span></h2>
-                    <?php   }
-                    ?>
-                    <h4><?php echo $stats['title3'] ?></h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="counter-box text-center">
-                    <?php
-                    $num4 = strpos($stats['count4'], "k");
-                    if ($num4) {
-                        $numstat4 = substr_replace($stats['count4'], '', $num4); ?>
-
-                        <h2><span class="counter"><?php echo $numstat4 ?></span>K</h2>
-                    <?php   } else {
-                        $numstat4 = $stats['count4']; ?>
-                        <h2><span class="counter"><?php echo $numstat4 ?></span></h2>
-                    <?php   }
-                    ?>
-                    <h4><?php echo $stats['title4'] ?></h4>
+                    <div class="team-info">
+                        <h4><a href="javascript:void(0);">Miranda H. Halim</a></h4>
+                        <h6 class="ltn__secondary-color">Property Seller</h6>
+                        <div class="ltn__social-media">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</section> -->
-<!--====== End counter-area Section ======-->
-
-
-<!--====== Start About Detail Page Section =======-->
-<section class="gradient-bg pt-50 pb-50">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="section-title text-center mb-50">
-                    <span class="span"><?php echo $page['page_meta_title'] ?></span>
-                    <h2><?php echo $page['page_title'] ?></h2>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <?php echo $page['page_detail'] ?>
-            </div>
-        </div>
-    </div>
-</section>
-<!--====== End About Detail Page Section ======-->
+</div>
+<!-- TEAM AREA END -->

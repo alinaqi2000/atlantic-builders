@@ -4,18 +4,18 @@
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
+sleep(3);
 
 $fullname = mres($_POST['fullname']);
 $email = mres($_POST['email']);
-$phone_no = mres($_POST['phone_no']);
+$phone = mres($_POST['phone']);
 $subject = mres($_POST['subject']);
 $message = mres($_POST['message']);
 $recapcha = mres($_POST['g-recaptcha-response']);
 $output['status'] = TRUE;
 
 // validations
-if (empty($fullname) || empty($email) || empty($phone_no) || empty($subject) || empty($message)) {
+if (empty($fullname) || empty($email) || empty($phone) || empty($subject) || empty($message)) {
     $output['status'] = FALSE;
     $output['message'] = "Please fill in all the required fields";
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -36,14 +36,14 @@ if ($output['status']) {
         "SITE_LOGO" => $path . 'uploads/logo/' . $site_logo,
         "SITE_NAME" => $site_name,
         "SITE_FOOTER" => $site_name,
-        "TOP_BANNER" => $path . 'assets/images/illustrations/mailbox.png',
+        "TOP_BANNER" => $path . 'assets/img/illustrations/mailbox.png',
         "MSG_TITLE" => "Dear Admin",
         "MSG_BODY" =>  nl2br($_POST['message'])
     );
     $msg_data = array(
         "Ful Name" => $fullname,
         "Email Address" => $email,
-        "Phone Number" => $phone_no
+        "Phone Number" => $phone
     );
     $msg_body = '<table width="100%" style="margin-top:2rem;" border="0" cellspacing="0" cellpadding="0">
                 <tr><th align="left"><u>Message Details</u><th></tr>';
@@ -65,8 +65,8 @@ if ($output['status']) {
     $subject = "Contact Us : " . stripslashes($_POST["email"]);
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html;charset=utf-8\r\n";
-    $headers .= "From: No-Reply <noreply@fusionmax>" . "\r\n";
-    $headers .= "Reply-To: No-Reply <noreply@fusionmax>" . "\r\n";
+    $headers .= "From: No-Reply <noreply@atlanticmarketing>" . "\r\n";
+    $headers .= "Reply-To: No-Reply <noreply@atlanticmarketing>" . "\r\n";
     if ($site_driver == "mail") {
         @mail($emailto, $subject, $template, $headers);
         $output['message'] = "Your message has been sent, we will contact you soon";
@@ -112,7 +112,7 @@ if ($output['status']) {
         "SITE_LOGO" => $path . 'uploads/logo/' . $site_logo,
         "SITE_NAME" => $site_name,
         "SITE_FOOTER" => $site_name,
-        "TOP_BANNER" => $path . 'assets/images/illustrations/contact-us.png',
+        "TOP_BANNER" => $path . 'assets/img/illustrations/contact-us.png',
         "MSG_TITLE" => "Dear " . $fullname,
         "MSG_BODY" => $email_tempplate['email_body'],
     );
@@ -124,8 +124,8 @@ if ($output['status']) {
     $subject = $email_tempplate['email_subject'];
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html;charset=utf-8\r\n";
-    $headers .= "From: No-Reply <noreply@fusionmax>" . "\r\n";
-    $headers .= "Reply-To: No-Reply <noreply@fusonmax>" . "\r\n";
+    $headers .= "From: No-Reply <noreply@atlanticmarketing>" . "\r\n";
+    $headers .= "Reply-To: No-Reply <noreply@atlanticmarketing>" . "\r\n";
 
     if ($site_driver == "mail") {
         @mail($emailto, $subject, $template, $headers);

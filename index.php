@@ -14,7 +14,7 @@ $intake_sec = unserialize(str($intake_sec['txt_data']));
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Quarter - Real Estate HTML Template</title>
+    <title>Atlantic Marketing and Builders</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,6 +31,10 @@ $intake_sec = unserialize(str($intake_sec['txt_data']));
     <link rel="stylesheet" href="<?= $path ?>assets/css/responsive.css">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="<?= $path ?>assets/css/custom.css">
+
+    <script>
+        const BASE_URL = "<?= $path ?>";
+    </script>
 </head>
 
 <body>
@@ -65,6 +69,13 @@ $intake_sec = unserialize(str($intake_sec['txt_data']));
     <script>
         new WOW().init();
     </script>
+
+    <!-- SweetAlert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.11/dist/sweetalert2.all.min.js"></script>
+    <!-- Form submit -->
+    <script src="<?= $path ?>assets/js/form-submit.js"></script>
+    <!-- Form validation -->
+    <script src="<?= $path ?>assets/js/form-validation.js"></script>
 </body>
 
 </html>
