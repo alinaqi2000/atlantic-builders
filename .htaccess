@@ -8,9 +8,12 @@ ErrorDocument 404 /404
 
 RewriteRule ^([^./\\"'?#]+)$ index.php?page=$1 [L,QSA]	
 RewriteRule ^/?(news)/([^./\\"'?#]+)$  index.php?page=news_detail&slug=$2 [L,QSA]
+RewriteRule ^/?(property)/([^./\\"'?#]+)$  index.php?page=property-detail&slug=$2 [L,QSA]
+RewriteRule ^/?(service)/([^./\\"'?#]+)$  index.php?page=service-details&slug=$2 [L,QSA]
 RewriteRule ^/?(event)/([^./\\"'?#]+)$  index.php?page=news_event&event=$2 [L,QSA]
 RewriteRule ^/?(category)/([^./\\"'?#]+)$  index.php?page=news_categories&category=$2 [L,QSA]
 RewriteRule ^/?(search_news/)/([^./\\"'?#]+)$  index.php?page=news_search?search_inp [L,QSA]
+
 
 RewriteRule ^/?(service)/([^./\\"'?#]+)$  index.php?page=service-details&slug=$2 [L,QSA]
 RewriteRule ^/?(booking)/([^./\\"'?#]+)$  index.php?page=booking&code=$2 [L,QSA]

@@ -14,7 +14,7 @@ $page = $exe->fetch_assoc();
                     <div class="ltn__breadcrumb-list">
                         <ul>
                             <li><a href="<?php echo $path ?>"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
-                            <li><?php echo $page['page_meta_title'] ?></li>
+                            <li> About</li>
                         </ul>
                     </div>
                 </div>

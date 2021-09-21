@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 <?php
 if (isset($_POST['formOne'])) {
@@ -29,7 +29,7 @@ $data = unserialize(stripslashes($rs));
             <div class="container-fluid page__container">
                 <div class="row">
                     <div class="col-md-3">
-                    <?php include_once("pages/shared/settings_sidebar.php"); ?>
+                        <?php include_once("pages/shared/settings_sidebar.php"); ?>
                     </div>
 
                     <div class="col-md-9">
@@ -58,11 +58,13 @@ $data = unserialize(stripslashes($rs));
                                         </div>
                                     </div>
                                 </div> -->
-                                <?= formTextIconSocial('Facebook Link', 'site_facebook', $data['site_facebook'], 'facebook', 'text') ?>
-                                <?= formTextIconSocial('Twitter Link', 'site_twitter', $data['site_twitter'], 'twitter', 'text') ?>
-                                <?= formTextIconSocial('Skype Link', 'site_skype', $data['site_skype'], 'skype', 'text') ?>
-                                <?= formTextIconSocial('Instagram Link', 'site_instagram', $data['site_instagram'], 'instagram', 'text') ?>
-                                <?= formTextIconSocial('Pinterest Link', 'site_pinterest', $data['site_pinterest'], 'pinterest-p', 'text') ?>
+                                        <?= formTextIconSocial('Facebook Link', 'site_facebook', $data['site_facebook'], 'facebook', 'text') ?>
+                                        <?= formTextIconSocial('Twitter Link', 'site_twitter', $data['site_twitter'], 'twitter', 'text') ?>
+                                        <?= formTextIconSocial('Skype Link', 'site_skype', $data['site_skype'], 'skype', 'text') ?>
+                                        <?= formTextIconSocial('Instagram Link', 'site_instagram', $data['site_instagram'], 'instagram', 'text') ?>
+                                        <?= formTextIconSocial('Pinterest Link', 'site_pinterest', $data['site_pinterest'], 'pinterest-p', 'text') ?>
+                                        <?= formTextIconSocial('LinkedIn Link', 'site_linkedin', $data['site_linkedin'], 'linkedin', 'text') ?>
+                                        <?= formTextIconSocial('Youtube Link', 'site_youtube', $data['site_youtube'], 'youtube', 'text') ?>
                                         <!-- <div class="form-group">
                                             <label for="field">Facebook Link</label>
                                             <div class="form-group">

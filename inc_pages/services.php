@@ -5,16 +5,16 @@ $exe = $conn->query($paging) or die(mysqli_error($conn));
 $page = $exe->fetch_assoc();
 ?>
 <!-- BREADCRUMB AREA START -->
-<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image " data-bs-bg="<?= $path ?>assets/img/bg/14.jpg">
+<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image " data-bs-bg="<?= $path ?>uploads/banners/<?= $page['page_image'] ?>">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="ltn__breadcrumb-inner">
-                    <h1 class="page-title"><?php echo $page['page_title'] ?></h1>
+                    <h1 class="page-title"><?= $page['page_title'] ?></h1>
                     <div class="ltn__breadcrumb-list">
                         <ul>
-                            <li><a href="<?php echo $path ?>"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
-                            <li><?php echo $page['page_meta_title'] ?></li>
+                            <li><a href="<?= $path ?>"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
+                            <li> Services</li>
                         </ul>
                     </div>
                 </div>
@@ -37,110 +37,30 @@ $page = $exe->fetch_assoc();
             </div>
         </div>
         <div class="row ltn__category-slider-active--- slick-arrow-1 justify-content-center">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                    <a href="shop.html">
-                        <span class="category-icon"><i class="flaticon-car"></i></span>
-                        <span class="category-number">01</span>
-                        <span class="category-title">Parking Space</span>
-                        <span class="category-brief">
-                            Enimad minim veniam quis no exercitation ullamco lab
-                        </span>
-                        <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                    </a>
+            <?php
+            $services_qry =  "SELECT * FROM tbl_services  WHERE service_status='1' ORDER BY service_order ASC";
+            $services_exe = $conn->query($services_qry) or die(mysqli_error($conn));
+            $presrNo = '0';
+            $srNo = 1;
+            while ($service = $services_exe->fetch_array()) {
+                if ($srNo >= 10) {
+                    $presrNo = '';
+                }
+            ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
+                    <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
+                        <a href="javascript:void(0);">
+                            <span class="category-icon"><i class="<?= $service['service_icon'] ?>"></i></span>
+                            <span class="category-number"><?= $presrNo ?><?= $srNo++ ?></span>
+                            <span class="category-title"><?= $service['service_title'] ?></span>
+                            <span class="category-brief">
+                                <?= $service['service_short_desc'] ?>
+                            </span>
+                            <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                    <a href="shop.html">
-                        <span class="category-icon"><i class="flaticon-swimming"></i></span>
-                        <span class="category-number">02</span>
-                        <span class="category-title">Swimming Pool</span>
-                        <span class="category-brief">
-                            Enimad minim veniam quis no exercitation ullamco lab
-                        </span>
-                        <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                    <a href="shop.html">
-                        <span class="category-icon"><i class="flaticon-secure-shield"></i></span>
-                        <span class="category-number">03</span>
-                        <span class="category-title">Private Security</span>
-                        <span class="category-brief">
-                            Enimad minim veniam quis no exercitation ullamco lab
-                        </span>
-                        <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                    <a href="shop.html">
-                        <span class="category-icon"><i class="flaticon-stethoscope"></i></span>
-                        <span class="category-number">04</span>
-                        <span class="category-title">Medical Center</span>
-                        <span class="category-brief">
-                            Enimad minim veniam quis no exercitation ullamco lab
-                        </span>
-                        <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                    <a href="shop.html">
-                        <span class="category-icon"><i class="flaticon-book"></i></span>
-                        <span class="category-number">05</span>
-                        <span class="category-title">Library Area</span>
-                        <span class="category-brief">
-                            Enimad minim veniam quis no exercitation ullamco lab
-                        </span>
-                        <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                    <a href="shop.html">
-                        <span class="category-icon"><i class="flaticon-bed-1"></i></span>
-                        <span class="category-number">06</span>
-                        <span class="category-title">King Size Beds</span>
-                        <span class="category-brief">
-                            Enimad minim veniam quis no exercitation ullamco lab
-                        </span>
-                        <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                    <a href="shop.html">
-                        <span class="category-icon"><i class="flaticon-home-2"></i></span>
-                        <span class="category-number">07</span>
-                        <span class="category-title">Smart Homes</span>
-                        <span class="category-brief">
-                            Enimad minim veniam quis no exercitation ullamco lab
-                        </span>
-                        <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                    <a href="shop.html">
-                        <span class="category-icon"><i class="flaticon-slider"></i></span>
-                        <span class="category-number">08</span>
-                        <span class="category-title">Kid’s Playland</span>
-                        <span class="category-brief">
-                            Enimad minim veniam quis no exercitation ullamco lab
-                        </span>
-                        <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                    </a>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </div>

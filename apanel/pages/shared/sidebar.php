@@ -15,7 +15,7 @@
                     </a>
                 </li>
 
-                <li class="sidebar-menu-item <?= ($_REQUEST['page'] == 'text_hero' || $_REQUEST['page'] == 'slider' || $_REQUEST['page'] == 'text_team' || $_REQUEST['page'] == 'text_testimonials' || $_REQUEST['page'] == 'text_features' || $_REQUEST['page'] == 'text_newsletter' || $_REQUEST['page'] == 'text_client' || $_REQUEST['page'] == 'text_service' || $_REQUEST['page'] == 'text_portfolio' || $_REQUEST['page'] == 'text_about' || $_REQUEST['page'] == 'text_header' || $_REQUEST['page'] == 'text_footer' || $_REQUEST['page'] == 'text_contact') ? 'active' : ''; ?> ">
+                <li class="sidebar-menu-item <?= ($_REQUEST['page'] == 'text_facilities'  || $_REQUEST['page'] == 'text_newsletter' ||  $_REQUEST['page'] == 'text_about' || $_REQUEST['page'] == 'text_header' || $_REQUEST['page'] == 'text_footer') ? 'active' : ''; ?> ">
                     <a class="sidebar-menu-button" href="<?= $apath; ?>text_header">
                         <i class="sidebar-menu-icons sidebar-menu-icon--left material-icons">pages</i>
                         <span class="sidebar-menu-text">Home Page</span>
@@ -38,10 +38,10 @@
 
 
                 <!--End Module-->
-                <li class="sidebar-menu-item <?= ($_REQUEST['page'] == 'aminities') ? 'active' : ''; ?>">
-                    <a class="sidebar-menu-button" href="<?= $apath; ?>aminities">
+                <li class="sidebar-menu-item <?= ($_REQUEST['page'] == 'services') ? 'active' : ''; ?>">
+                    <a class="sidebar-menu-button" href="<?= $apath; ?>services">
                         <i class="sidebar-menu-icons sidebar-menu-icon--left material-icons">dvr</i>
-                        <span class="sidebar-menu-text">Aminities</span>
+                        <span class="sidebar-menu-text">Services</span>
                     </a>
                 </li>
                 <li class="sidebar-menu-item <?= ($_REQUEST['page'] == 'projects') ? 'active' : ''; ?>">

@@ -103,7 +103,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                                     <div class="badge badge-soft-dark">#<?= $sr++ ?></div>
                                                 </td>
 
-                                                <td><img src="<?= getImageSrc("../uploads/teatimonials/" . $row['test_image']); ?>" class="tbl_img" /></td>
+                                                <td><img src="<?= getImageSrc("../uploads/testimonials/" . $row['test_image']); ?>" class="tbl_img" /></td>
 
                                                 <td><?= stripslashes($row['test_title']); ?></td>
 

@@ -11,8 +11,8 @@
                 <div class="col-md-7">
                     <div class="ltn__top-bar-menu">
                         <ul>
-                            <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> info@webmail.com</a></li>
-                            <li><a href="locations.html"><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
+                            <li><a href="mailto:<?= $site_email ?>?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> <?= $site_email ?></a></li>
+                            <li><a href="<?= $path ?>contact"><i class="icon-placeholder"></i> <?= $site_address ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="col">
                     <div class="site-logo-wrap">
                         <div class="site-logo animated fadeIn">
-                            <a href="<?= $path ?>"><img src="<?= $path ?>images/logo.png" alt="Logo"></a>
+                            <a href="<?= $path ?>"><img src="<?= $path ?>uploads/logo/<?= $site_logo ?>" alt="Logo"></a>
                         </div>
                         <div class="get-support clearfix d-none">
                             <div class="get-support-icon">
@@ -72,7 +72,7 @@
                             </div>
                             <div class="get-support-info">
                                 <h6>Get Support</h6>
-                                <h4><a href="tel:+123456789">123-456-789-10</a></h4>
+                                <h4><a href="tel:<?= $site_phone ?>"><?= $site_phone ?></a></h4>
                             </div>
                         </div>
                     </div>
@@ -84,9 +84,15 @@
                                 <ul>
                                     <li><a href="<?= $path ?>">Home</a></li>
                                     <li><a href="<?= $path ?>about">About</a></li>
-                                    <li><a href="<?= $path ?>properties">Properties</a></li>
-                                    <li><a href="<?= $path ?>upcoming-projects">Upcoming Projects</a></li>
-                                    <li><a href="<?= $path ?>services">Services</a></li>
+
+                                    <?php
+                                    $mod_qry =  "SELECT * FROM tbl_module WHERE mod_status='1' ";
+                                    $exe = $conn->query($mod_qry) or die(mysqli_error($conn));
+                                    while ($row = $exe->fetch_array()) {
+                                        $slug = toSlugUrl($row['mod_title']);
+                                    ?>
+                                        <li><a href="<?= $path ?><?= toSlugUrl($row['mod_title']) ?>"><?= $row['mod_title'] ?></a></li>
+                                    <?php } ?>
                                     <li class="special-link">
                                         <a href="<?= $path ?>contact">Contact</a>
                                     </li>
@@ -117,7 +123,7 @@
     <div class="ltn__utilize-menu-inner ltn__scrollbar">
         <div class="ltn__utilize-menu-head">
             <div class="site-logo">
-                <a href="<?= $path ?>"><img src="<?= $path ?>images/logo.png" alt="Logo"></a>
+                <a href="<?= $path ?>"><img src="<?= $path ?>uploads/logo/<?php echo $site_logo ?>" alt="Logo"></a>
             </div>
             <button class="ltn__utilize-close">×</button>
         </div>
@@ -125,19 +131,41 @@
             <ul>
                 <li><a href="<?= $path ?>">Home</a></li>
                 <li><a href="<?= $path ?>about">About</a></li>
-                <li><a href="<?= $path ?>properties">Properties</a></li>
-                <li><a href="<?= $path ?>upcoming-projects">Upcoming Projects</a></li>
-                <li><a href="<?= $path ?>services">Services</a></li>
+                <?php
+                $mod_qry1 =  "SELECT * FROM tbl_module WHERE mod_status='1' ";
+                $exe1 = $conn->query($mod_qry1) or die(mysqli_error($conn));
+                while ($row1 = $exe1->fetch_array()) {
+                    $slug1 = toSlugUrl($row1['mod_title']);
+                ?>
+                    <li><a href="<?= $path ?><?= $slug1 ?>"><?= $row1['mod_title'] ?></a></li>
+                <?php } ?>
                 <li><a href="<?= $path ?>contact">Contact</a>
                 </li>
             </ul>
         </div>
         <div class="ltn__social-media-2">
             <ul>
-                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+
+                <?php if ($site_facebook) { ?>
+                    <li><a href="<?= $site_facebook ?>" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <?php } ?>
+                <?php if ($site_twitter) { ?>
+                    <li><a href="<?= $site_twitter ?>" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <?php } ?>
+                <?php if ($site_linkedin) { ?>
+                    <li><a href="<?= $site_linkedin ?>" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                <?php } ?>
+                <?php if ($site_instagram) { ?>
+                    <li><a href="<?= $site_instagram ?>" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <?php } ?>
+
+                <?php if ($site_pinterest) { ?>
+                    <li><a href="<?= $site_pinterest ?>" title="Pinterest"><i class="fab fa-pinterest"></i></a></li>
+                <?php } ?>
+                <?php if ($site_youtube) { ?>
+                    <li><a href="<?= $site_youtube ?>" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+                <?php } ?>
+
             </ul>
         </div>
     </div>

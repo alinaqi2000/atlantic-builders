@@ -12,8 +12,8 @@
 
         <form action="" method="POST" novalidate>
             <input type="hidden" name="login" id="login" value="posted" />
-            
-        <div class=""><?php echo showMsg(); ?></div>
+
+            <div class=""><?php echo showMsg(); ?></div>
             <div class="form-group">
                 <label class="text-label" for="email_2">Username:</label>
                 <div class="input-group input-group-merge">
@@ -44,12 +44,12 @@
             </div>
             <div class="form-group text-center">
                 <button class="btn btn-primary mb-5" type="submit">Login</button><br>
-                <a href="<?=$apath;?>login?reset=1">Forgot password?</a> 
+                <a href="<?= $apath; ?>login?reset=1">Forgot password?</a>
                 <!-- <br> Don't have an account? <a class="text-body text-underline" href="signup.html">Sign up!</a> -->
             </div>
         </form>
     </div>
-    <?php /*
+    <!-- < php
 <div class="hold-transition login-page" style="background: url('<?php echo $path ?>uploads/banners/<?php echo $login_image ?>')  #d2d6de;
 
 margin: 0px;
@@ -129,7 +129,7 @@ z-index: 999999;">
 
                     <div class="col-xs-6 text-center" style="margin-top: 10px;">
 
-                        <a href="<?=$apath;?>login?reset=1" style="color:#c7c7c7;margin-top: 20px;">Reset Password</a>
+                        <a href="<?= $apath; ?>login?reset=1" style="color:#c7c7c7;margin-top: 20px;">Reset Password</a>
 
                     </div>
 
@@ -149,4 +149,4 @@ z-index: 999999;">
 <div class="clearfix"></div>
 
 </div>
-
+-->

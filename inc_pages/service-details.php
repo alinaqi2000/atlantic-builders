@@ -61,34 +61,11 @@ try {
                         </h4>
                         <ul class="list">
                             <?php
-                            $paging1 =  "SELECT * FROM tbl_services WHERE service_status='1' AND service_parent IS NULL OR service_parent='0'";
+                            $paging1 =  "SELECT * FROM tbl_services WHERE service_status='1'";
                             $exe1 = $conn->query($paging1) or die(mysqli_error($conn));
                             while ($row1 = $exe1->fetch_array()) {
-                                $children = getChildrenServices($row1['service_id']);
                             ?>
-                                <li <?= $_REQUEST['slug'] == $row1['service_slug'] ? 'class="active"' : "" ?>><a href="<?= $path ?>service/<?php echo $row1['service_slug'] ?>"><?php echo $row1['service_title'] ?></a>
-                                    <?php
-
-                                    if (count($children)) {
-                                    ?>
-                                        <ul class="sub-menu">
-                                            <?php
-                                            foreach ($children as $child) {
-                                            ?>
-                                                <li <?= $_REQUEST['slug'] == $child['service_slug'] ? 'class="active-child"' : "" ?>>
-                                                    <a href="<?= $path ?>service/<?php echo $child['service_slug'] ?>">
-                                                        <?php echo $child['service_title'] ?>
-                                                    </a>
-                                                </li>
-                                            <?php
-                                            }
-                                            ?>
-                                        </ul>
-                                    <?php
-                                    }
-                                    ?>
-
-                                </li>
+                                <li <?= $_REQUEST['slug'] == $row1['service_slug'] ? 'class="active"' : "" ?>><a href="<?= $path ?>service/<?php echo $row1['service_slug'] ?>"><?php echo $row1['service_title'] ?></a></li>
 
                             <?php } ?>
                             <!-- <li><a href="#">Towel Hand Dry</a></li>
@@ -118,7 +95,7 @@ try {
 
                             .sub-menu li a::before {
                                 content: "\203A";
-                                margin: 0 8px 0 0 ;
+                                margin: 0 8px 0 0;
                             }
                         </style>
                     </div>

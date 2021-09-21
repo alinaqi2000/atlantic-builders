@@ -834,7 +834,7 @@ function toSlugUrl($text)
 {
     $text = trim($text);
     $text = preg_replace('/[^A-Za-z0-9-]+/', '-', $text);
-    $text = str_replace("--", '-', $text);
+    $text = str_replace(" ", '-', $text);
     $text = str_replace("--", '-', $text);
     return strtolower($text);
 }

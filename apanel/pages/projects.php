@@ -1,38 +1,13 @@
 <?php
 if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
-    $list = getPortfolioCategoriesString($_REQUEST['code']);
 ?>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="assets/calender/fonts/icomoon/style.css">
-
-    <link rel="stylesheet" href="assets/calender/css/rome.css">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/calender/css/bootstrap.min.css">
-
-    <!-- Style -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Style for Multi Selector -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-
-    <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> -->
-
-    <!-- JQUERY -->
-    <script src="assets/calender/js/jquery-3.3.1.min.js"></script>
 
     <div class="mdk-header-layout__content">
         <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
             <div class="mdk-drawer-layout__content page">
                 <div class="container-fluid  page__heading-container">
                     <div class="page__heading">
-                        <h4 class="m-0"><i class="fa fa-image"></i> Manage PortFolio <i class="fa fa-chevron-right
+                        <h4 class="m-0"><i class="fa fa-image"></i> Manage Project <i class="fa fa-chevron-right
 "></i> Create / Update</h4>
                     </div>
                 </div>
@@ -42,8 +17,8 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                             <div class="row no-gutters">
                                 <div class="col-lg-10 offset-1 card-form__body card-body">
                                     <div class="form-group">
-                                        <label for="portfolio_title">Title</label>
-                                        <input class="form-control" name="portfolio_title" id="portfolio_title" value="<?= stripslashes($data['portfolio_title']); ?>">
+                                        <label for="proj_title">Title</label>
+                                        <input class="form-control" name="proj_title" id="proj_title" value="<?= stripslashes($data['proj_title']); ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="proj_type">Type</label>
@@ -74,6 +49,15 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                                 Inactive</option>
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="proj_featured">Featured</label>
+                                        <select name="proj_featured" id="proj_featured" class="form-control">
+                                            <option value="1" <?= ($data['proj_featured'] == '1' ? 'selected="selected"' : ''); ?>>Yes
+                                            </option>
+                                            <option value="0" <?= ($data['proj_featured'] == '0' ? 'selected="selected"' : ''); ?>>
+                                                No</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="text-center mb-3">
@@ -88,15 +72,6 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
             <?php include_once("pages/shared/sidebar.php"); ?>
         </div>
     </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#editor1").summernote();
-        })
-    </script> -->
 <?php } else {
 ?>
     <div class="mdk-header-layout__content">
@@ -105,7 +80,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                 <div class="container-fluid page__container">
                     <div class="page__heading d-flex align-items-center">
                         <div class="flex">
-                            <h4 class="m-0"><i class="fa fa-image"></i> Manage PortFolio</h4>
+                            <h4 class="m-0"><i class="fa fa-image"></i> Manage Projects</h4>
                         </div>
                         <a href="javascript:document.getElementById('updateForm').submit();" class="btn btn-primary ml-3" onclick="return confirm('Are you sure you want to update records?');">Update <i class="fa fa-arrow-up"></i></a>
                         <a href="<?= $apath; ?><?= $page_uri; ?>?mode=add" class="btn btn-success ml-3">Create New <i class="fa fa-plus"></i></a>
@@ -119,6 +94,7 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                             <th style="width: 3%;" class="text-center">#ID</th>
                                             <th style="width: 15%;">Image</th>
                                             <th>Title</th>
+                                            <th style="width: 10%;">Featured</th>
                                             <th style="width: 10%;" class="text-center">Sort</th>
                                             <th style="width: 10%;">Status</th>
                                             <th width="10%" class="text-center">Delete</th>
@@ -143,6 +119,12 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                                     <td><img src="<?= getImageSrc("../uploads/projects/" . $row['proj_image']); ?>" class="tbl_img" /></td>
 
                                                     <td><?= $row['proj_title'] ?></td>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="proj_featured[]" class="custom-control-input js-check-selected-row" id="customCheck1_<?= $ami_id ?>" value="<?= $ami_id ?>">
+                                                            <label class="custom-control-label" for="customCheck1_<?= $ami_id ?>"><?= getFeatureStatus($row['proj_featured']); ?></label>
+                                                        </div>
+                                                    </td>
                                                     <td style="width:80px" class="text-center"><input id="orderid<?= $proj_id ?>" type="text" name="orderid<?= $proj_id ?>" value="<?= $row['proj_order'] ?>" class="form-control" size="3" />
                                                     </td>
                                                     <td>
