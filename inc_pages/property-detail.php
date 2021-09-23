@@ -10,6 +10,11 @@ if ($multi_img) {
 } else {
     $count_image = 0;
 }
+
+$string = $property['prop_location'];
+$pieces = explode(' ', $string);
+$last_word = array_pop($pieces);
+
 ?>
 <!--====== Start service-area Section ======-->
 
@@ -69,23 +74,31 @@ if ($multi_img) {
 
                         <!-- comment-reply -->
                         <div class="ltn__comment-reply-area ltn__form-box mb-30">
-                            <form action="#">
+                            <form action="#" method="post" data-url="<?= $path . 'send-property-message' ?>" data-type="property" class="contact-form contact">
+                            
+                                    <input type="hidden" name="property_title">
                                 <div class="input-item input-item-textarea ltn__custom-icon">
-                                    <textarea placeholder="Type your comments...."></textarea>
+                                    <textarea name="message" placeholder="Type your comments...."></textarea>
                                 </div>
                                 <div class="input-item input-item-name ltn__custom-icon">
-                                    <input type="text" placeholder="Type your name....">
+                                    <input type="text" name="name" placeholder="Type your name....">
                                 </div>
                                 <div class="input-item input-item-email ltn__custom-icon">
-                                    <input type="email" placeholder="Type your email....">
+                                    <input type="email" name="email" placeholder="Type your email....">
                                 </div>
                                 <div class="input-item input-item-website ltn__custom-icon">
                                     <input type="text" name="website" placeholder="Type your website....">
                                 </div>
                                 <!-- <label class="mb-0"><input type="checkbox" name="agree"> Save my name, email, and website in this browser for the next time I comment.</label> -->
-                                <div class="btn-wrapper">
-                                    <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Submit</button>
-                                </div>
+                                <div class="btn-wrapper mt-4">
+
+                            <button class="btn theme-btn-1 btn-effect-1 text-uppercase main-btn submit" id="contact-submit" type="submit">
+                                <img id="btn-loader" style="height: 25px;display:none;" src="<?= $path ?>assets/img/illustrations/btn-loader.svg" alt="Please wait...">
+                                <div class="submit-text">send message</div>
+
+                            </button>
+                        </div>
+                        <p class="form-messege mb-0 mt-20"></p>
                             </form>
                         </div>
                     </div>
@@ -95,7 +108,7 @@ if ($multi_img) {
 
                         <!-- ltn__product-item -->
                         <?php
-                        $rel_prop_qry =  "SELECT * FROM tbl_properties WHERE prop_status='1' ORDER BY prop_order ASC LIMIT 6";
+                        $rel_prop_qry =  "SELECT * FROM tbl_properties WHERE prop_status='1' AND prop_location LIKE '%$last_word%' ORDER BY prop_order ASC LIMIT 6";
                         $rel_prop_exe = $conn->query($rel_prop_qry) or die(mysqli_error($conn));
                         while ($rel_prop = $rel_prop_exe->fetch_array()) {
                             if ($rel_prop['prop_type'] == 'Rent') {
