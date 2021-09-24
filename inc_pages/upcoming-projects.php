@@ -43,7 +43,7 @@ $page = $exe->fetch_assoc();
             $projects_exe = $conn->query($projects_qry) or die(mysqli_error($conn));
             while ($project = $projects_exe->fetch_array()) {
             ?>
-                <div class="col-lg-12 wow animated zoomInUp" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="col-lg-12 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
                     <div class="ltn__upcoming-project-item">
                         <div class="row">
                             <div class="col-lg-7">

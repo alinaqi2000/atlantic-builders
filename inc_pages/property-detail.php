@@ -2,18 +2,16 @@
 $slugUrl = $_REQUEST['slug'];
 $properties_qry =  "SELECT * FROM tbl_properties  WHERE prop_status='1' AND prop_slug='$slugUrl' ORDER BY prop_order ASC";
 $properties_exe = $conn->query($properties_qry) or die(mysqli_error($conn));
-$property = $properties_exe->fetch_assoc();
+$single_p = $properties_exe->fetch_assoc();
 
-$multi_img = unserialize(stripslashes($property['prop_multi_images']));
+$multi_img = unserialize(stripslashes($single_p['prop_multi_images']));
 if ($multi_img) {
     $count_image = count($multi_img);
 } else {
     $count_image = 0;
 }
 
-$string = $property['prop_location'];
-$pieces = explode(' ', $string);
-$last_word = array_pop($pieces);
+$last_word = array_pop(explode(' ', $single_p['prop_location']));
 
 ?>
 <!--====== Start service-area Section ======-->
@@ -47,13 +45,13 @@ $last_word = array_pop($pieces);
                 <div class="ltn__shop-details-inner ltn__page-details-inner mb-60">
                     <div class="ltn__blog-meta">
                         <ul>
-                            <?php if ($property['prop_featured'] == '1') { ?>
+                            <?php if ($single_p['prop_featured'] == '1') { ?>
                                 <li class="ltn__blog-category">
                                     <a href="#">Featured</a>
                                 </li>
                             <?php } ?>
                             <li class="ltn__blog-category">
-                                <a class="bg-orange" href="#">FOR <?= ucwords($property['prop_type']) ?></a>
+                                <a class="bg-orange" href="#">FOR <?= ucwords($single_p['prop_type']) ?></a>
                             </li>
                             <li class="ltn__blog-date">
                                 <i class="far fa-calendar-alt"></i>May 19, 2021
@@ -61,10 +59,10 @@ $last_word = array_pop($pieces);
 
                         </ul>
                     </div>
-                    <h1><?= $property['prop_title'] ?></h1>
-                    <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> <?= $property['prop_location'] ?></label>
+                    <h1><?= $single_p['prop_title'] ?></h1>
+                    <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> <?= $single_p['prop_location'] ?></label>
                     <h4 class="title-2">Description</h4>
-                    <p><?= $property['prop_detail'] ?></p>
+                    <p><?= $single_p['prop_detail'] ?></p>
 
 
 
@@ -74,9 +72,9 @@ $last_word = array_pop($pieces);
 
                         <!-- comment-reply -->
                         <div class="ltn__comment-reply-area ltn__form-box mb-30">
-                            <form action="#" method="post" data-url="<?= $path . 'send-property-message' ?>" data-type="property" class="contact-form contact">
-                            
-                                    <input type="hidden" name="property_title">
+                            <form action="#" method="post" data-url="<?= $path . 'send-property-message' ?>" data-type="property" class="contact-form property">
+
+                                <input type="hidden" name="property_title">
                                 <div class="input-item input-item-textarea ltn__custom-icon">
                                     <textarea name="message" placeholder="Type your comments...."></textarea>
                                 </div>
@@ -92,65 +90,20 @@ $last_word = array_pop($pieces);
                                 <!-- <label class="mb-0"><input type="checkbox" name="agree"> Save my name, email, and website in this browser for the next time I comment.</label> -->
                                 <div class="btn-wrapper mt-4">
 
-                            <button class="btn theme-btn-1 btn-effect-1 text-uppercase main-btn submit" id="contact-submit" type="submit">
-                                <img id="btn-loader" style="height: 25px;display:none;" src="<?= $path ?>assets/img/illustrations/btn-loader.svg" alt="Please wait...">
-                                <div class="submit-text">send message</div>
+                                    <button class="btn theme-btn-1 btn-effect-1 text-uppercase main-btn submit" id="property-submit" type="submit">
+                                        <img id="btn-loader" style="height: 25px;display:none;" src="<?= $path ?>assets/img/illustrations/btn-loader.svg" alt="Please wait...">
+                                        <div class="submit-text">send message</div>
 
-                            </button>
-                        </div>
-                        <p class="form-messege mb-0 mt-20"></p>
+                                    </button>
+                                </div>
+                                <p class="form-messege mb-0 mt-20"></p>
                             </form>
                         </div>
                     </div>
 
-                    <h4 class="title-2">Related Properties</h4>
-                    <div class="row">
 
-                        <!-- ltn__product-item -->
-                        <?php
-                        $rel_prop_qry =  "SELECT * FROM tbl_properties WHERE prop_status='1' AND prop_location LIKE '%$last_word%' ORDER BY prop_order ASC LIMIT 6";
-                        $rel_prop_exe = $conn->query($rel_prop_qry) or die(mysqli_error($conn));
-                        while ($rel_prop = $rel_prop_exe->fetch_array()) {
-                            if ($rel_prop['prop_type'] == 'Rent') {
-                                $bg = "bg-green";
-                            } else {
-                                $bg = "bg-green---";
-                            }
-                        ?>
-                            <div class="col-lg-6 col-sm-12 col-xl-6 col-md-6 col-12 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                                <div class="ltn__product-item ltn__product-item-4 text-center---">
-                                    <div class="product-img">
-                                        <a href="<?= $path ?>property/<?= $rel_prop['prop_slug'] ?>"><img src="<?= $path ?>uploads/properties/<?= $rel_prop['prop_image'] ?>" alt="#"></a>
-                                        <div class="product-badge">
-                                            <ul>
-                                                <li class="sale-badge <?= $bg ?>">FOR <?= ucwords($rel_prop['prop_type']) ?></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-img-location-gallery">
-                                            <div class="product-img-location">
-                                                <ul>
-                                                    <li>
-                                                        <a href="<?= $path ?>property/<?= $rel_prop['prop_slug'] ?>"><i class="flaticon-pin"></i> <?= $rel_prop['prop_location'] ?></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-
-                                        <h2 class="product-title"><a href="<?= $path ?>property/<?= $rel_prop['prop_slug'] ?>"><?= $rel_prop['prop_title'] ?></a></h2>
-                                        <div class="product-description">
-                                            <p><?= $rel_prop['prop_short_desc'] ?></p>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        <?php } ?>
-                        <!-- ltn__product-item End -->
-                    </div>
                 </div>
+
             </div>
             <div class="col-lg-4">
                 <aside class="sidebar ltn__shop-sidebar ltn__right-sidebar---">
@@ -164,42 +117,17 @@ $last_word = array_pop($pieces);
                             <?php
                             $prop_featured_qry =  "SELECT * FROM tbl_properties  WHERE prop_status='1' ORDER BY prop_order ASC";
                             $featured_exe = $conn->query($prop_featured_qry) or die(mysqli_error($conn));
-                            while ($featured_property = $featured_exe->fetch_array()) {
-                                if ($featured_property['prop_type'] == 'Rent') {
+                            while ($property = $featured_exe->fetch_array()) {
+                                if ($property['prop_type'] == 'Rent') {
                                     $bg = "bg-green";
                                 } else {
                                     $bg = "bg-green---";
                                 }
                             ?>
-                                <div class="col-lg-12 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                                    <div class="ltn__product-item ltn__product-item-4 text-center---">
-                                        <div class="product-img">
-                                            <a href="<?= $path ?>property/<?= $featured_property['prop_slug'] ?>"><img src="<?= $path ?>uploads/properties/<?= $featured_property['prop_image'] ?>" alt="Property Image"></a>
-                                            <div class="product-badge">
-                                                <ul>
-                                                    <li class="sale-badge <?= $bg ?>">FOR <?= ucwords($featured_property['prop_type']) ?></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-img-location-gallery">
-                                                <div class="product-img-location">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="<?= $path ?>property/<?= $featured_property['prop_slug'] ?>"><i class="flaticon-pin"></i> <?= $featured_property['prop_location'] ?></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-
-                                            <h2 class="product-title"><a href="<?= $path ?>property/<?= $featured_property['prop_slug'] ?>"><?= $featured_property['prop_title'] ?></a></h2>
-                                            <div class="product-description">
-                                                <p><?= $featured_property['prop_short_desc'] ?></p>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
+                                <div class="col-lg-12 wow animated fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+                                    <?php
+                                    include("./inc_pages/widgets/property.php");
+                                    ?>
                                 </div>
                             <?php } ?>
                             <!-- ltn__product-item End -->
@@ -207,6 +135,33 @@ $last_word = array_pop($pieces);
                         </div>
                     </div>
                 </aside>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="title-2">Related Properties</h4>
+                <div class="row owl-carousel">
+
+                    <!-- ltn__product-item -->
+                    <?php
+                    $rel_prop_qry =  "SELECT * FROM tbl_properties WHERE prop_status='1' AND prop_location LIKE '%$last_word%' ORDER BY prop_order ASC LIMIT 6";
+                    $rel_prop_exe = $conn->query($rel_prop_qry) or die(mysqli_error($conn));
+                    while ($property = $rel_prop_exe->fetch_array()) {
+                        if ($property['prop_type'] == 'Rent') {
+                            $bg = "bg-green";
+                        } else {
+                            $bg = "bg-green---";
+                        }
+                    ?>
+                        <div class="col-lg-4 col-sm-6 col-xl-4 col-md-4 col-12 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
+                            <?php
+                            include("./inc_pages/widgets/property.php");
+                            ?>
+                        </div>
+
+                    <?php } ?>
+                    <!-- ltn__product-item End -->
+                </div>
             </div>
         </div>
     </div>
