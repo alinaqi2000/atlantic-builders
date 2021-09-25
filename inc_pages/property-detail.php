@@ -10,8 +10,8 @@ if ($multi_img) {
 } else {
     $count_image = 0;
 }
-
-$last_word = array_pop(explode(' ', $single_p['prop_location']));
+$expo = explode(' ', $single_p['prop_location']);
+$last_word = array_pop($expo);
 
 ?>
 <!--====== Start service-area Section ======-->

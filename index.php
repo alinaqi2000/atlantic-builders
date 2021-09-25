@@ -20,7 +20,7 @@ $intake_sec = unserialize(str($intake_sec['txt_data']));
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Place favicon.png in the root directory -->
-    <link rel="shortcut icon" href="<?= $path ?>assets/img/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?= $path ?>uploads/logo/<?= $site_favicon ?>" type="image/x-icon" />
     <!-- Font Icons css -->
     <link rel="stylesheet" href="<?= $path ?>assets/css/font-icons.css">
     <!-- plugins css -->

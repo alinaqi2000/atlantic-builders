@@ -115,33 +115,6 @@ $facilities = unserialize(stripslashes($our_facilities['txt_data']));
                         <h1 class="section-title wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s"><?= $about['title'] ?></h1>
                         <p class="wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="1s"><?= $about['short_desc'] ?></p>
                     </div>
-                    <!-- <div class="ltn__feature-item ltn__feature-item-3">
-                            <div class="ltn__feature-icon">
-                                <span><i class="flaticon-house-4"></i></span>
-                            </div>
-                            <div class="ltn__feature-info">
-                                <h4><a href="service-details.html">The Perfect Residency</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisic do eiusmod tempor incididunt ut labore et</p>
-                            </div>
-                        </div>
-                        <div class="ltn__feature-item ltn__feature-item-3">
-                            <div class="ltn__feature-icon">
-                                <span><i class="flaticon-call-center-agent"></i></span>
-                            </div>
-                            <div class="ltn__feature-info">
-                                <h4><a href="service-details.html">Global Architect Experts</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisic do eiusmod tempor incididunt ut labore et</p>
-                            </div>
-                        </div>
-                        <div class="ltn__feature-item ltn__feature-item-3">
-                            <div class="ltn__feature-icon">
-                                <span><i class="flaticon-maps-and-location"></i></span>
-                            </div>
-                            <div class="ltn__feature-info">
-                                <h4><a href="service-details.html">Built-in Storage Cupboards</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisic do eiusmod tempor incididunt ut labore et</p>
-                            </div>
-                        </div> -->
                 </div>
             </div>
         </div>

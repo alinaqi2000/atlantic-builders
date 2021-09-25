@@ -8,6 +8,10 @@ if (isset($_POST['formOne'])) {
         $vals['site_logo'] = $img_rs;
     }
 
+    if ($img_rs = uploadImage($_FILES["site_favicon"], "../uploads/logo/", 197)) {
+        $vals['site_favicon'] = $img_rs;
+    }
+
     if ($img_rs = uploadImage($_FILES["login_image"], "../uploads/banners/", 1310)) {
         $vals['login_image'] = $img_rs;
     }
@@ -79,6 +83,7 @@ $data = unserialize(stripslashes($rs));
                                         <?= formText('Domain Name', 'site_domain', $data['site_domain']); ?>
                                         <?= formText('Site Version', 'site_version', $data['site_version']); ?>
                                         <?= formImageFile('Site Primary Logo', 'site_logo', $data['site_logo'], '197px X 57px', 'logo') ?>
+                                        <?= formImageFile('Site Favicon', 'site_favicon', $data['site_favicon'], '197px X 57px', 'logo') ?>
                                         <?= formImageFile('Site Login Banner', 'login_image', $data['login_image'], '1310px X 627px', 'banners') ?>
                                         <? #= formImageFile('Site Secondary Logo', 'sec_logo', $data['sec_logo'], '', 'logo') 
                                         ?>

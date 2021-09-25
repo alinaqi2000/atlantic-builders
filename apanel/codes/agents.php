@@ -1,19 +1,19 @@
 <?php
 
 // $page_title = 'Slider';
-$page_short = 'Testimonial';
-$page_uri = 'testimonials';
-$this_table = 'tbl_testimonials';
-$this_prefix = 'test_';
+$page_short = 'Agent';
+$page_uri = 'agents';
+$this_table = 'tbl_agents';
+$this_prefix = 'agent_';
 
 if (isset($_POST['submit1'])) {
 
     $vals = $_POST;
     unset($vals['submit1']);
-    if ($img_rs = uploadImage($_FILES[$this_prefix . "image"], "../uploads/testimonials/", 720)) {
+    if ($img_rs = uploadImage($_FILES[$this_prefix . "image"], "../uploads/agents/", 720)) {
         $vals[$this_prefix . 'image'] = $img_rs;
     }
-    $vals['test_slug'] = toSlugUrl($vals['test_title']);
+    $vals['agent_slug'] = toSlugUrl($vals['agent_name']);
     if ($_REQUEST['mode'] == 'add') {
         global $conn;
 

@@ -35,6 +35,12 @@
                         <span class="sidebar-menu-text">Testimonials</span>
                     </a>
                 </li>
+                <li class="sidebar-menu-item <?= ($_REQUEST['page'] == 'agents') ? 'active' : ''; ?>">
+                    <a class="sidebar-menu-button" href="<?= $apath; ?>agents">
+                        <i class="sidebar-menu-icons sidebar-menu-icon--left material-icons">list</i>
+                        <span class="sidebar-menu-text">Agents</span>
+                    </a>
+                </li>
 
 
                 <!--End Module-->
