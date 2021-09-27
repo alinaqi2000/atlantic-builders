@@ -7,6 +7,15 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
         $count_image = 0;
     }
 ?>
+    <link rel="stylesheet" href="<?= $apath ?>calender/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="<?= $apath ?>calender/css/rome.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?= $apath ?>calender/css/bootstrap.min.css">
+
+    <script src="<?= $apath ?>calender/js/jquery-3.3.1.min.js"></script>
+
     <div class="mdk-header-layout__content">
         <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
             <div class="mdk-drawer-layout__content page">
@@ -24,6 +33,17 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
                                     <div class="form-group">
                                         <label for="prop_title">Title</label>
                                         <input class="form-control" name="prop_title" id="prop_title" value="<?= stripslashes($data['prop_title']); ?>">
+                                    </div>
+                                    <div class="container text-left">
+                                        <div class="row justify-content-left">
+
+                                            <div class="form-group">
+                                                <label for="input_from">Select Date</label>
+                                                <input autocomplete="off" aria-expanded="false" aria-autocomplete="both" value="<?= $data['prop_date'] ?>" name="prop_date" type="text" class="form-control" id="input">
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                     <div class="form-group">
                                         <label for="prop_location">Location</label>
@@ -89,6 +109,12 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
             <?php include_once("pages/shared/sidebar.php"); ?>
         </div>
     </div>
+
+    <script src="<?= $apath ?>calender/js/popper.min.js"></script>
+    <script src="<?= $apath ?>calender/js/bootstrap.min.js"></script>
+    <script src="<?= $apath ?>calender/js/rome.js"></script>
+
+    <script src="<?= $apath ?>calender/js/main.js"></script>
 <?php } else {
 ?>
     <div class="mdk-header-layout__content">
@@ -190,9 +216,3 @@ if ($_REQUEST['mode'] == 'update' || $_REQUEST['mode'] == 'add') {
     </div>
 <?php }
 ?>
-
-<script src="assets/calender/js/popper.min.js"></script>
-<script src="assets/calender/js/bootstrap.min.js"></script>
-<script src="assets/calender/js/rome.js"></script>
-
-<script src="assets/calender/js/main.js"></script>

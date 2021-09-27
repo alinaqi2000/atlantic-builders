@@ -32,6 +32,8 @@ $intake_sec = unserialize(str($intake_sec['txt_data']));
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="<?= $path ?>assets/css/custom.css">
 
+    <!--====== Jquery js ======-->
+    <script src="<?php echo $path ?>assets/js/vendor/jquery-1.12.4.min.js?v=<?php echo $site_version ?>"></script>
     <script>
         const BASE_URL = "<?= $path ?>";
     </script>
@@ -76,6 +78,24 @@ $intake_sec = unserialize(str($intake_sec['txt_data']));
     <script src="<?= $path ?>assets/js/form-submit.js"></script>
     <!-- Form validation -->
     <script src="<?= $path ?>assets/js/form-validation.js"></script>
+
+
+    <?php if (empty($_REQUEST['page'] || $_REQUEST['page'] == 'index' || $_REQUEST['page'] == 'home')) { ?>
+        <script>
+            $(document).ready(function() {
+                $('.slick-slider').slick({
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    arrows: true,
+                    prevArrow: '<button type="button" class="slick-prev"></button>',
+                    nextArrow: '<button type="button" class="slick-next"></button>',
+                    centerMode: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 2
+                });
+            })
+        </script>
+    <?php } ?>
 </body>
 
 </html>

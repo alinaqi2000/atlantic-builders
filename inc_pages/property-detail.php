@@ -13,6 +13,8 @@ if ($multi_img) {
 $expo = explode(' ', $single_p['prop_location']);
 $last_word = array_pop($expo);
 
+$date = $single_p['prop_date'];
+$Date   =   date("d M Y", strtotime($date));
 ?>
 <!--====== Start service-area Section ======-->
 
@@ -47,14 +49,14 @@ $last_word = array_pop($expo);
                         <ul>
                             <?php if ($single_p['prop_featured'] == '1') { ?>
                                 <li class="ltn__blog-category">
-                                    <a href="#">Featured</a>
+                                    <a class="cursor-default" href="javascript:void(0);">Featured</a>
                                 </li>
                             <?php } ?>
                             <li class="ltn__blog-category">
-                                <a class="bg-orange" href="#">FOR <?= ucwords($single_p['prop_type']) ?></a>
+                                <a class="bg-orange cursor-default" href="javascript:void(0);">FOR <?= ucwords($single_p['prop_type']) ?></a>
                             </li>
                             <li class="ltn__blog-date">
-                                <i class="far fa-calendar-alt"></i>May 19, 2021
+                                <i class="far fa-calendar-alt"></i><?= $Date ?>
                             </li>
 
                         </ul>

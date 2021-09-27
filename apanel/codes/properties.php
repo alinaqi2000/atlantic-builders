@@ -22,22 +22,24 @@ if (isset($_POST['submit1'])) {
         if ($img_rs = uploadImage($_FILES[$this_prefix . "image"], "../uploads/properties/", 720)) {
             $vals[$this_prefix . 'image'] = $img_rs;
         }
-        $imageArray = $_FILES["p_image"];
-        // print_r($imageArray);
-        for ($i = 0; $i < count($imageArray['name']); $i++) {
-            $array = array(
-                "name" => $imageArray['name'][$i],
-                "type" => $imageArray['type'][$i],
-                "tmp_name" => $imageArray['tmp_name'][$i]
-            );
-            if ($img_rs = uploadMultiImage($array, "../uploads/properties/", 720)) {
+        if ($_FILES["p_image"]['name']['0']) {
+            $imageArray = $_FILES["p_image"];
+            // print_r($imageArray);
+            for ($i = 0; $i < count($imageArray['name']); $i++) {
+                $array = array(
+                    "name" => $imageArray['name'][$i],
+                    "type" => $imageArray['type'][$i],
+                    "tmp_name" => $imageArray['tmp_name'][$i]
+                );
+                if ($img_rs = uploadMultiImage($array, "../uploads/properties/", 720)) {
 
 
-                $image[$i] .= $img_rs;
+                    $image[$i] .= $img_rs;
+                }
             }
+            $vals["prop_multi_images"] = serialize($image);
         }
         unset($vals['p_image']);
-        $vals["prop_multi_images"] = serialize($image);
         saveRecord($this_table, $vals);
         $_SESSION['successMsg'] = "Property has been saved successfully !";
     } else if ($_REQUEST['mode'] == 'update') {
@@ -45,23 +47,24 @@ if (isset($_POST['submit1'])) {
         if ($img_rs = uploadImage($_FILES[$this_prefix . "image"], "../uploads/properties/", 720)) {
             $vals[$this_prefix . 'image'] = $img_rs;
         }
+        if ($_FILES["p_image"]['name']['0']) {
+            $imageArray = $_FILES["p_image"];
+            // print_r($imageArray);
+            for ($i = 0; $i < count($imageArray['name']); $i++) {
+                $array = array(
+                    "name" => $imageArray['name'][$i],
+                    "type" => $imageArray['type'][$i],
+                    "tmp_name" => $imageArray['tmp_name'][$i]
+                );
+                if ($img_rs = uploadMultiImage($array, "../uploads/properties/", 720)) {
 
-        $imageArray = $_FILES["p_image"];
-        // print_r($imageArray);
-        for ($i = 0; $i < count($imageArray['name']); $i++) {
-            $array = array(
-                "name" => $imageArray['name'][$i],
-                "type" => $imageArray['type'][$i],
-                "tmp_name" => $imageArray['tmp_name'][$i]
-            );
-            if ($img_rs = uploadMultiImage($array, "../uploads/properties/", 720)) {
 
-
-                $image[$i] .= $img_rs;
+                    $image[$i] .= $img_rs;
+                }
             }
+            $vals["prop_multi_images"] = serialize($image);
         }
         unset($vals['p_image']);
-        $vals["prop_multi_images"] = serialize($image);
         updateRecord($this_table, $vals, " `{$this_prefix}id` = '" . $_REQUEST["code"] . "' ");
         $_SESSION['successMsg'] = "Property has been updated successfully !";
     }

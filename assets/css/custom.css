@@ -1,19 +1,26 @@
 .ltn__header-top-area {
-  background: var(--section-bg-2);
-  color: #f2f6f7;
+    background: var(--section-bg-2);
+    color: #f2f6f7;
 }
+
 .ltn__slider-11 .ltn__slide-item-11,
 .ltn__testimonial-area {
-  background: var(--section-bg-2);
+    background: var(--section-bg-2);
 }
+
 .ltn__slide-item-2 .slide-title,
 .ltn__slide-item-2 .slide-sub-title,
 .ltn__about-us-area.section-bg-2 .section-title,
 .ltn__testimonial-area .section-title {
-  color: #f2f6fd;
+    color: #f2f6fd;
 }
+
 .slide-brief p,
 .ltn__about-us-area.section-bg-2 p,
 .ltn__about-us-area.section-bg-2 ul.ltn__list-item-half li {
-  color: #cbced2;
+    color: #cbced2;
+}
+
+.cursor-default {
+    cursor: default;
 }

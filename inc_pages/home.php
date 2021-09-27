@@ -41,7 +41,7 @@ $facilities = unserialize(stripslashes($our_facilities['txt_data']));
                                                 <p><?= $slider['slider_desc'] ?></p>
                                             </div>
                                             <div class="btn-wrapper animated">
-                                                <a href="<?= $path ?><?= $slider['slider_btn_link'] ?>" class="theme-btn-1 btn btn-effect-1"><?= $slider['slider_btn_text'] ?></a>
+                                                <a href="<?= $slider['slider_btn_link'] ?>" class="theme-btn-1 btn btn-effect-1"><?= $slider['slider_btn_text'] ?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -64,9 +64,15 @@ $facilities = unserialize(stripslashes($our_facilities['txt_data']));
         <!-- slider-sticky-icon -->
         <div class="slider-sticky-icon-2">
             <ul>
-                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                <?php if ($site_facebook) { ?>
+                    <li><a href="<?= $site_facebook ?>" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <?php } ?>
+                <?php if ($site_twitter) { ?>
+                    <li><a href="<?= $site_twitter ?>" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <?php } ?>
+                <?php if ($site_linkedin) { ?>
+                    <li><a href="<?= $site_linkedin ?>" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                <?php } ?>
             </ul>
         </div>
         <!-- slider-4-img-slide-arrow -->
@@ -198,17 +204,9 @@ $facilities = unserialize(stripslashes($our_facilities['txt_data']));
                 }
             ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                    <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                        <a href="javascript:void(0);">
-                            <span class="category-icon"><i class="<?= $service['service_icon'] ?>"></i></span>
-                            <span class="category-number"><?= $presrNo ?><?= $srNo++ ?></span>
-                            <span class="category-title"><?= $service['service_title'] ?></span>
-                            <span class="category-brief">
-                                <?= $service['service_short_desc'] ?>
-                            </span>
-                            <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                        </a>
-                    </div>
+                    <?php
+                    include("./inc_pages/widgets/service.php");
+                    ?>
                 </div>
             <?php } ?>
         </div>

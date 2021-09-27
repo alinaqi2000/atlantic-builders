@@ -3,14 +3,14 @@
         <a href="<?= $path ?>property/<?= $property['prop_slug'] ?>"><img src="<?= $path ?>uploads/properties/<?= $property['prop_image'] ?>" alt="Property Image"></a>
         <div class="product-badge">
             <ul>
-                <li class="sale-badge <?= $bg ?>">FOR <?= ucwords($property['prop_type']) ?></li>
+                <li class="sale-badge cursor-default <?= $bg ?>">FOR <?= ucwords($property['prop_type']) ?></li>
             </ul>
         </div>
         <div class="product-img-location-gallery">
             <div class="product-img-location">
                 <ul>
                     <li>
-                        <a href="locations.html"><i class="flaticon-pin"></i> <?= $property['prop_location'] ?></a>
+                        <a href="<?= $path ?>property/<?= $property['prop_slug'] ?>"><i class="flaticon-pin"></i> <?= $property['prop_location'] ?></a>
                     </li>
                 </ul>
             </div>

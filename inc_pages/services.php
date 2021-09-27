@@ -48,17 +48,9 @@ $page = $exe->fetch_assoc();
                 }
             ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6 wow animated zoomIn" data-wow-duration="1s" data-wow-delay="1s">
-                    <div class="ltn__category-item ltn__category-item-5 ltn__category-item-5-2 text-center---">
-                        <a href="javascript:void(0);">
-                            <span class="category-icon"><i class="<?= $service['service_icon'] ?>"></i></span>
-                            <span class="category-number"><?= $presrNo ?><?= $srNo++ ?></span>
-                            <span class="category-title"><?= $service['service_title'] ?></span>
-                            <span class="category-brief">
-                                <?= $service['service_short_desc'] ?>
-                            </span>
-                            <span class="category-btn d-none"><i class="flaticon-right-arrow"></i></span>
-                        </a>
-                    </div>
+                    <?php
+                    include("./inc_pages/widgets/service.php");
+                    ?>
                 </div>
             <?php } ?>
         </div>

@@ -40,11 +40,25 @@
                                     <!-- ltn__social-media -->
                                     <div class="ltn__social-media">
                                         <ul>
-                                            <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                            <?php if ($site_facebook) { ?>
+                                                <li><a href="<?= $site_facebook ?>" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                            <?php } ?>
+                                            <?php if ($site_twitter) { ?>
+                                                <li><a href="<?= $site_twitter ?>" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                            <?php } ?>
+                                            <?php if ($site_linkedin) { ?>
+                                                <li><a href="<?= $site_linkedin ?>" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                                            <?php } ?>
+                                            <?php if ($site_instagram) { ?>
+                                                <li><a href="<?= $site_instagram ?>" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                            <?php } ?>
 
-                                            <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+                                            <?php if ($site_pinterest) { ?>
+                                                <li><a href="<?= $site_pinterest ?>" title="Pinterest"><i class="fab fa-pinterest"></i></a></li>
+                                            <?php } ?>
+                                            <?php if ($site_youtube) { ?>
+                                                <li><a href="<?= $site_youtube ?>" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+                                            <?php } ?>
                                         </ul>
                                     </div>
                                 </li>
@@ -145,7 +159,6 @@
         </div>
         <div class="ltn__social-media-2">
             <ul>
-
                 <?php if ($site_facebook) { ?>
                     <li><a href="<?= $site_facebook ?>" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                 <?php } ?>
